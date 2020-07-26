@@ -172,7 +172,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这里是蔡承杰在个人博客网站上的第一篇博客，这个博客网站的搭建参照了B站up主Code Sheep的教程。非常感谢羊哥，在学习Java的道路上帮助了我很多，参考的视频地址链接：<a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Yb411a7ty</a></p>
+<p>个人博客对于程序员的意义想必大家都很清楚了。目前传统的博客平台主要包括：CSDN、博客园、简书、掘金等。本人也尝试在其中的相关平台写过一些技术博客。但羊哥的这个视频为我打开了一扇大门，在自己的网站上写博客可真是一件太coolllll的事了！</p>
+<p>话不多说，开始介绍这个博客网站的搭建过程！</p>
+<h1 id="博客搭建流程"><a href="#博客搭建流程" class="headerlink" title="博客搭建流程"></a>博客搭建流程</h1><h2 id="1-所需环境"><a href="#1-所需环境" class="headerlink" title="1 所需环境"></a>1 所需环境</h2><ul>
+<li>Node.js v12.16.3</li>
+<li>Hexo</li>
+<li>Git及GitHub</li>
+</ul>
+<h2 id="2-Node-js的下载及安装"><a href="#2-Node-js的下载及安装" class="headerlink" title="2 Node.js的下载及安装"></a>2 Node.js的下载及安装</h2><h3 id="2-1-node的安装"><a href="#2-1-node的安装" class="headerlink" title="2.1 node的安装"></a>2.1 node的安装</h3><p>官网下载地址：</p>
+<p><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a></p>
+<p>可以选择下载官网显示的最新版本，也可以选择点击全部安装包的选项，在其中选择下载不同的版本。在地址栏对应的版本号修改为自己想下载的版本号，比如我下载的就是12.16.3这个版本的node。</p>
+<p>下载安装好之后，由于Windows平台的特殊性，这里遇到了一些坑（视频里是mac版的，查询了网上的其他资料），需要对环境变量进行配置。</p>
+<p>在node 的安装目录下新建一个node_modules的文件夹，并将该地址在系统变量中设置为NODE_PATH这一变量。同时在Path中添加$NODE_PATH$，以及Node的安装目录地址。</p>
+<p>可以通过node -v来判断环境变量是否设置好了。</p>
+<h3 id="2-2-npm改源（cnpm）"><a href="#2-2-npm改源（cnpm）" class="headerlink" title="2.2 npm改源（cnpm）"></a>2.2 npm改源（cnpm）</h3><p>在cmd中使用如下命令</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install cnpm -g --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+
+<p>同时记得将cnpm的安装地址也设置进环境变量中。</p>
+<h2 id="3-Hexo的安装"><a href="#3-Hexo的安装" class="headerlink" title="3 Hexo的安装"></a>3 Hexo的安装</h2><p>其实Hexo的安装非常简单，其官网地址已经给出了相应的安装步骤。Hexo的官网地址链接：<a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a></p>
+<p><img src="C:%5CUsers%5CCCJ%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200726174527256.png" alt="image-20200726174527256"></p>
+<p>这里首先需要你先cd至想要安装博客的地址。然后再命令行中打出相关命令Hexo就安装完毕。（将图片中的npm换位cnpm，速度会更快）</p>
+<p>可以发现，Hexo为我们新建了一个Hello World.md的博客，地址在${博客目录}$/source/_posts/下。今后，就可以在这里编写博客啦！（格式都是md哦）</p>
+<p>Tips: hexo server 命令可以简写为hexo s</p>
+<p>在输完hexo s后，打开localhost:4000，就能看到Hexo框架的博客了。</p>
+<h2 id="4-部署至GitHub"><a href="#4-部署至GitHub" class="headerlink" title="4 部署至GitHub"></a>4 部署至GitHub</h2><p>由于目前的Hexo只能再本地上，而本人又是个没得钱的小穷狗（想想心里就很蓝瘦），而这里提供了一种解决方案，就是将其部署至GitHub上。</p>
+<h3 id="4-1-GitHub账号的创建"><a href="#4-1-GitHub账号的创建" class="headerlink" title="4.1 GitHub账号的创建"></a>4.1 GitHub账号的创建</h3><p>emmm,,这个就不用我教了吧，跳过</p>
+<h3 id="4-2-在GitHub上新建一个repo"><a href="#4-2-在GitHub上新建一个repo" class="headerlink" title="4.2 在GitHub上新建一个repo"></a>4.2 在GitHub上新建一个repo</h3><p>repo名为${你的GitHub名称}$.github.io</p>
+<p>以我为例，我的GitHub名称为cc-1029，就新建一个cc-1029.github.io的repo。</p>
+<h3 id="4-3-config-yml文件的设置"><a href="#4-3-config-yml文件的设置" class="headerlink" title="4.3 _config.yml文件的设置"></a>4.3 _config.yml文件的设置</h3><p>在博客的安装的根目录下，找到该文件，进行如下的设置。</p>
+<p>找到deploy（部署）相关的内容，输入</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/$&#123;你的GitHub名称&#125;$/$&#123;你的GitHub名称&#125;$.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>点击保存即可。</p>
+<p>在命令行中，先打</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>再输入如下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy(或者是直接打d)</span><br></pre></td></tr></table></figure>
+
+<p>就可以部署到GitHub上啦！</p>
+<h2 id="5-相关的美化"><a href="#5-相关的美化" class="headerlink" title="5 相关的美化"></a>5 相关的美化</h2><p>使用yilia插件<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a></p>
+<p>这个插件的作者已经写了相关的安装教程。</p>
+<p><img src="C:%5CUsers%5CCCJ%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200726180338480.png" alt="image-20200726180338480"></p>
+<p>按照这个步骤，就可以对原先的博客进行相关的美化。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这一整套流程下来，还是很爽的，毕竟是有了一个带有自己域名的博客网站。这个网站中的流量相关、安全相关的问题就不care了。自己目前还是个刚入互联网公司的小社畜，还有很多不太懂的东西，写出来的博客也很稚嫩。但是，相信未来的自己，会写出更多的干活的。奥里给！</p>
+
       
 
       
